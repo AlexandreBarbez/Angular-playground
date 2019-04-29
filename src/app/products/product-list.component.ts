@@ -49,7 +49,7 @@ export class ProductListComponent implements OnInit{
 
     constructor() {
         this.filteredProducts = this.products;
-        this.listFilter = "cart";
+        this.listFilter = "";
     }
 
     toggleImage(): void {
@@ -64,6 +64,10 @@ export class ProductListComponent implements OnInit{
         filterBy =  filterBy.toLocaleLowerCase();
         return this.products.filter((product: Product) =>
             product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1);
+    }
+
+    onRatingClicked($event: string): void {
+        console.log($event);
     }
 }
 

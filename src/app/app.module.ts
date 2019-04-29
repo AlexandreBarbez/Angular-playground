@@ -9,6 +9,7 @@ import { ProductListComponent } from './products/product-list.component';
 import localeFr from '@angular/common/locales/fr';
 import {registerLocaleData} from '@angular/common';
 import {ConvertToSpacesPipe} from "./shared/convert-to-spaces";
+import {StarComponent} from "./shared/star.component";
 
 registerLocaleData(localeFr);
 
@@ -20,7 +21,8 @@ registerLocaleData(localeFr);
   declarations: [
     AppComponent,
     ProductListComponent,
-    ConvertToSpacesPipe
+    ConvertToSpacesPipe,
+    StarComponent
   ],
   imports: [
     BrowserModule,
