@@ -14,6 +14,7 @@ export class ProductService {
     }
 
     getProducts(): Observable<Product[]>{
+
         return this.http.get<Product[]>(this.productUrl).pipe(
             tap(data => console.log("All : "+JSON.stringify(data))),
             catchError(this.handleError)
