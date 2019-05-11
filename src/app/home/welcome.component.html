@@ -14,6 +14,24 @@
       <div class="text-center">
         <h3>Barbez Alexandre</h3>
       </div>
+
+
+<!--      FOR LELE-->
+      <div class="form-group">
+        <label>Options:</label>
+        <div *ngFor="let option of options">
+          <label>
+            <input type="checkbox"
+                   name="options"
+                   value="{{option.value}}"
+                   [(ngModel)]="option.checked"/>
+            {{option.name}}
+          </label>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-primary" (click)="printChecked()"> print checked options in console</button>
+<!--      FOR LELE-->
       
     </div>
   </div>
