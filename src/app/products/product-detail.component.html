@@ -2,4 +2,19 @@
   <div class="card-header">
       {{pageTitle + ': ' + product.productName}}
   </div>
+
+    <div>Description : {{product.description}}</div>
+    <div>Code : {{ product.productCode | lowercase | convertToSpaces: '-' }}</div>
+    <div>Release date : {{product.releaseDate}}</div>
+    <div>Price : {{ product.price | currency:'EUR':'symbol':'1.2-2' }}</div>
+    <div>Image : <img *ngIf="showImage" [src]="product.imageUrl" [title]="product.productName | uppercase" [style.width.px]="imageWidth" [style.margin.px]="imageMargin"></div>
+    <pm-star [rating]="product.starRating"></pm-star>
+    <div class="card-footer">
+        <button class="btn btn-outline-secondary"
+                (click)="onBack()"
+                style="width:80px">
+            <i class="fa fa-chevron-left"></i>
+            Back
+        </button>
+    </div>
 </div>
