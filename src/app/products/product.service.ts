@@ -3,7 +3,7 @@ import {Product} from "./product";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
 import {catchError, filter, map, tap} from "rxjs/operators";
-import {generateErrorMessage} from "codelyzer/angular/styles/cssLexer";
+
 
 @Injectable()
 export class ProductService {

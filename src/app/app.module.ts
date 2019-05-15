@@ -1,18 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { ProductListComponent } from './products/product-list.component';
 import { registerLocaleData } from '@angular/common';
-import { ConvertToSpacesPipe } from "./shared/convert-to-spaces";
-import { StarComponent } from "./shared/star.component";
-import { ProductService } from "./products/product.service";
 import { HttpClientModule } from '@angular/common/http';
 import localeFr from '@angular/common/locales/fr';
-import { ProductDetailComponent } from './products/product-detail.component';
 import {WelcomeComponent} from "./home/welcome.component";
 import {RouterModule} from "@angular/router";
-import {ProductDetailGuard} from "./products/product-detail.guard";
+import {ProductModule} from "./products/product.module";
+import {ProductService} from "./products/product.service";
 
 registerLocaleData(localeFr);
 
@@ -20,32 +16,21 @@ registerLocaleData(localeFr);
   providers: [{
     provide: LOCALE_ID,
     useValue: 'fr-FR',
-  },
-  ProductService],
+  },ProductService],
   declarations: [
     AppComponent,
-    ProductListComponent,
-    ConvertToSpacesPipe,
-    StarComponent,
-    ProductDetailComponent,
     WelcomeComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot([
-      {path: 'products', component: ProductListComponent},
-      {
-        path: 'products/:id',
-        canActivate: [ProductDetailGuard],
-        component: ProductDetailComponent
-      },
       {path: 'welcome', component: WelcomeComponent},
       {path: '', redirectTo: 'welcome', pathMatch: 'full'},
       {path: '**', redirectTo: 'welcome', pathMatch: 'full'},
     ]),
-    ReactiveFormsModule
+    ProductModule
   ],
   bootstrap: [AppComponent]
 })
